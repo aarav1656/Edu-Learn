@@ -1,8 +1,8 @@
+// components/LandingPage.jsx
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-const LandingPage = ({ isAuthenticated, onSignInClick }) => {
+const LandingPage = ({ isAuthenticated, LoginButton }) => {
   return (
     <div className="max-w-[1440px] mx-auto px-6">
       {/* Navigation */}
@@ -22,15 +22,11 @@ const LandingPage = ({ isAuthenticated, onSignInClick }) => {
           {isAuthenticated ? (
             <div className="flex items-center gap-4">
               <Link href="/dashboard" className="text-gray-800">Dashboard</Link>
-              {/* Add any other authenticated user options here */}
             </div>
           ) : (
-            <button 
-              onClick={onSignInClick} 
-              className="text-gray-800 hover:text-gray-600"
-            >
-              Sign In
-            </button>
+            <div className="text-gray-800">
+              <LoginButton />
+            </div>
           )}
           <Link 
             href="/contact" 
@@ -41,7 +37,7 @@ const LandingPage = ({ isAuthenticated, onSignInClick }) => {
         </div>
       </nav>
 
-      {/* Rest of your landing page content remains the same */}
+      {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 py-16">
         {/* Left Column */}
         <div className="flex flex-col justify-center">

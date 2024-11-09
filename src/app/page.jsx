@@ -1,3 +1,4 @@
+// page.jsx
 'use client';
 
 import { useEffect } from 'react';
@@ -24,31 +25,14 @@ export default function Home() {
     );
   }
 
-  const handleSignIn = () => {
-    // Assuming LoginButton component handles the actual login
-    // You might need to adjust this based on your LoginButton implementation
-    const loginButton = document.createElement('div');
-    loginButton.style.display = 'none';
-    document.body.appendChild(loginButton);
-    
-    // Render LoginButton into the hidden div to trigger the login flow
-    const cleanup = ReactDOM.render(<LoginButton />, loginButton);
-    
-    // Cleanup after login attempt
-    setTimeout(() => {
-      document.body.removeChild(loginButton);
-      if (cleanup) cleanup();
-    }, 100);
-  };
-
   return (
-    <main>
+    <main className="relative">
       <LandingPage 
         isAuthenticated={authState.isAuthenticated}
-        onSignInClick={handleSignIn}
+        LoginButton={LoginButton}
       />
       
-      {/* You can keep this for debugging or remove it */}
+      {/* Success message */}
       {authState.isAuthenticated && (
         <div className="fixed bottom-4 right-4 bg-green-100 p-4 rounded-lg shadow">
           <p>You are logged in!</p>
