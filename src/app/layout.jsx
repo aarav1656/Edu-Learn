@@ -5,7 +5,7 @@ export default function RootLayout({
   children,
 }) {
   const opts = {
-    redirectUri: 'http://localhost:3000',
+    redirectUri: 'http://localhost:3000/redirect',
     referralCode: 'PARTNER6',
   };
 
@@ -23,7 +23,7 @@ export default function RootLayout({
   );
 }
 
-export const metadata = { 
-  title: 'Edu-Learn',
-  description: 'Decentralised learning platform',
+export const metadata = {
+  title: 'Your App Name',
+  description: 'Your app description',
 }

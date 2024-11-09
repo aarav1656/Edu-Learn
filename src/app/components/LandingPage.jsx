@@ -1,8 +1,7 @@
-// components/LandingPage.jsx
 import React from 'react';
 import Link from 'next/link';
 
-const LandingPage = ({ isAuthenticated, LoginButton }) => {
+const LandingPage = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-6">
       {/* Navigation */}
@@ -19,15 +18,7 @@ const LandingPage = ({ isAuthenticated, LoginButton }) => {
           </div>
         </div>
         <div className="flex items-center gap-6">
-          {isAuthenticated ? (
-            <div className="flex items-center gap-4">
-              <Link href="/dashboard" className="text-gray-800">Dashboard</Link>
-            </div>
-          ) : (
-            <div className="text-gray-800">
-              <LoginButton />
-            </div>
-          )}
+          <Link href="/signin" className="text-gray-800">Sign In</Link>
           <Link 
             href="/contact" 
             className="bg-black text-white px-5 py-2 rounded hover:bg-gray-900 font-medium"
@@ -42,9 +33,11 @@ const LandingPage = ({ isAuthenticated, LoginButton }) => {
         {/* Left Column */}
         <div className="flex flex-col justify-center">
           <div className="mb-8">
+            {/* Book icon */}
             <div className="w-32">
               <div className="relative">
                 <div className="absolute left-0 top-0">
+                  {/* Replace with your actual book icon */}
                   <div className="w-32 h-24 flex items-end">
                     <div className="w-24 h-16 border-2 border-black transform -rotate-12"></div>
                     <div className="w-6 h-6 bg-black rounded-full ml-2"></div>
@@ -71,6 +64,7 @@ const LandingPage = ({ isAuthenticated, LoginButton }) => {
           </button>
 
           <div className="mt-16">
+            {/* Notebook illustration */}
             <div className="w-40 h-40 relative">
               <div className="w-32 h-40 border-2 border-black transform rotate-12"></div>
             </div>
@@ -84,7 +78,7 @@ const LandingPage = ({ isAuthenticated, LoginButton }) => {
                 <div className="aspect-square relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-64 h-64 bg-gray-100 rounded-full"></div>
-                    <img src="/api/placeholder/400/400" alt="Learning platform illustration" />
+                    <img src="https://mycloudpulse.com/image/media-entertainment-solutions/media-and-entertainment-it-solutions.jpg" alt="" />
                   </div>
                   <div className="absolute top-8 right-8 w-16 h-16 bg-gray-200 rounded"></div>
                   <div className="absolute bottom-8 left-8 w-16 h-16 bg-gray-200 rounded"></div>
