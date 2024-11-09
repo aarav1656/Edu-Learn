@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import LoginButton from './components/LoginButton';
 import { useOCAuth } from '@opencampus/ocid-connect-js';
 import LandingPage from './components/LandingPage';
+import Introduction from './components/Introduction';
 
 export default function Home() {
   const { authState, ocAuth } = useOCAuth();
@@ -26,6 +27,7 @@ export default function Home() {
   }
 
   return (
+    <div>
     <main className="relative">
       <LandingPage 
         isAuthenticated={authState.isAuthenticated}
@@ -39,5 +41,7 @@ export default function Home() {
         </div>
       )}
     </main>
+    <Introduction />
+    </div>
   );
 }

@@ -84,7 +84,7 @@ const LandingPage = ({ isAuthenticated, LoginButton }) => {
                 <div className="aspect-square relative">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-64 h-64 bg-gray-100 rounded-full"></div>
-                    <img src="https://mycloudpulse.com/image/media-entertainment-solutions/media-and-entertainment-it-solutions.jpg" alt="Learning platform illustration" />
+                    <img src="/api/placeholder/400/400" alt="Learning platform illustration" />
                   </div>
                   <div className="absolute top-8 right-8 w-16 h-16 bg-gray-200 rounded"></div>
                   <div className="absolute bottom-8 left-8 w-16 h-16 bg-gray-200 rounded"></div>
