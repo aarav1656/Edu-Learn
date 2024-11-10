@@ -1,6 +1,30 @@
 import React from 'react';
 import { Check, BookOpen, Notebook, DollarSign, Award } from 'lucide-react';
 
+const Badge = ({ type, title, subtitle }) => (
+  <div className="relative w-72 h-96 bg-gray-900 rounded-xl p-4 flex flex-col items-center justify-center">
+    <div className={`absolute top-4 left-4 p-2 rounded-lg ${type === 'achievement' ? 'bg-white' : 'bg-indigo-500'} text-xs`}>
+      {type === 'achievement' ? 'ACHIEVEMENT BADGE' : 'BEGINNER BADGE'}
+    </div>
+    <div className={`w-24 h-24 ${type === 'achievement' ? 'bg-indigo-500' : 'bg-indigo-600'} flex items-center justify-center rounded-xl transform rotate-45 mb-6`}>
+      <div className="transform -rotate-45">
+        {type === 'achievement' ? (
+          <div className="w-12 h-8 border-2 border-gray-900" />
+        ) : (
+          <div className="w-12 h-12 border-2 border-r-8 border-gray-900" />
+        )}
+      </div>
+    </div>
+    <div className="text-white text-center mt-4">
+      <div className="font-bold uppercase">{title}</div>
+      <div className="text-xs mt-2 text-gray-400">{subtitle}</div>
+    </div>
+    <div className="absolute bottom-4 left-4">
+      <img src="/learnweb3-logo.png" alt="LearnWeb3" className="h-6" />
+    </div>
+  </div>
+);
+
 const StacksDegree = () => {
   const topics = [
     'Bitcoin',
@@ -18,8 +42,12 @@ const StacksDegree = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
+      {/* Badges Section */}
+      
+      {/* Rest of your existing component */}
       <div className="w-full h-48 bg-orange-400 rounded-xl mb-6"></div>
-
+      
+      {/* Your existing JSX continues here... */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Stacks Developer Degree</h1>
         <span className="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">
@@ -50,7 +78,6 @@ const StacksDegree = () => {
             </div>
           </div>
 
-          {/* About Section */}
           <div className="mt-8">
             <h2 className="text-xl font-semibold mb-4">About</h2>
             <p className="text-gray-700">
@@ -94,7 +121,21 @@ const StacksDegree = () => {
           </div>
         </div>
       </div>
+      <div className="flex gap-6 mb-8">
+        <Badge 
+          type="achievement"
+          title="DEGREE"
+          subtitle="STACKS DEVELOPER DEGREE"
+        />
+        <Badge 
+          type="beginner"
+          title="COURSE"
+          subtitle="INTRODUCTION TO STACKS DEGREE: STACKS DEVELOPER DEGREE"
+        />
+      </div>
+
     </div>
+    
   );
 };
 
