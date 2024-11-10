@@ -5,7 +5,7 @@ export default function RootLayout({
   children,
 }) {
   const opts = {
-    redirectUri: 'http://localhost:3000/redirect',
+    redirectUri: 'http://localhost:3000/courses',
     referralCode: 'PARTNER6',
   };
 
