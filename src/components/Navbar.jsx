@@ -7,7 +7,6 @@ import LoginButton from "./LoginButton";
 
 const Navbar = () => {
   const { authState, ocAuth } = useOCAuth();
-  console.log(authState);
   return (
     <nav className="flex items-center justify-between p-5">
       <div className="flex items-center gap-12">
@@ -30,7 +29,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex items-center gap-6">
-        {authState ? <LoginButton /> : <div>Logged In</div>}
+        {authState.isAuthenticated ? <p>Logged in</p> : <LoginButton />}
         <Link
           href="/contact"
           className="bg-black text-white px-5 py-2 rounded hover:bg-gray-900 font-medium"
