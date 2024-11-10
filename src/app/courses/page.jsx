@@ -1,10 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
+import Link from 'next/link';
 
-// This will be replaced with your actual contract interaction
 const mockFetchCourses = async () => {
-  // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
   return [
     {
@@ -26,60 +25,59 @@ const mockFetchCourses = async () => {
       theme: 'bg-orange-500'
     },
     {
-        id: 1,
-        title: 'Stacks Developer Degree',
-        description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
-        imageUrl: '/api/placeholder/400/200',
-        organization: {
-          name: 'Stacks',
-          logoUrl: '/api/placeholder/40/40',
-          date: 'April 22nd, 2024'
-        },
-        stats: {
-          courses: 1,
-          lessons: 6,
-          xp: 100000
-        },
-        badges: ['Introduction to Stacks'],
-        theme: 'bg-orange-500'
+      id: 2,
+      title: 'Stacks Developer Degree',
+      description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
+      imageUrl: '/api/placeholder/400/200',
+      organization: {
+        name: 'Stacks',
+        logoUrl: '/api/placeholder/40/40',
+        date: 'April 22nd, 2024'
       },
-      {
-        id: 1,
-        title: 'Stacks Developer Degree',
-        description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
-        imageUrl: '/api/placeholder/400/200',
-        organization: {
-          name: 'Stacks',
-          logoUrl: '/api/placeholder/40/40',
-          date: 'April 22nd, 2024'
-        },
-        stats: {
-          courses: 1,
-          lessons: 6,
-          xp: 100000
-        },
-        badges: ['Introduction to Stacks'],
-        theme: 'bg-orange-500'
+      stats: {
+        courses: 1,
+        lessons: 6,
+        xp: 100000
       },
-      {
-        id: 1,
-        title: 'Stacks Developer Degree',
-        description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
-        imageUrl: '/api/placeholder/400/200',
-        organization: {
-          name: 'Stacks',
-          logoUrl: '/api/placeholder/40/40',
-          date: 'April 22nd, 2024'
-        },
-        stats: {
-          courses: 1,
-          lessons: 6,
-          xp: 100000
-        },
-        badges: ['Introduction to Stacks'],
-        theme: 'bg-orange-500'
+      badges: ['Introduction to Stacks'],
+      theme: 'bg-orange-500'
+    },
+    {
+      id: 3,
+      title: 'Stacks Developer Degree',
+      description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
+      imageUrl: '/api/placeholder/400/200',
+      organization: {
+        name: 'Stacks',
+        logoUrl: '/api/placeholder/40/40',
+        date: 'April 22nd, 2024'
       },
-    // ... other courses
+      stats: {
+        courses: 1,
+        lessons: 6,
+        xp: 100000
+      },
+      badges: ['Introduction to Stacks'],
+      theme: 'bg-orange-500'
+    },
+    {
+      id: 4,
+      title: 'Stacks Developer Degree',
+      description: 'A comprehensive degree for developers looking to build on top of Bitcoin and tap into the over $1T of unproductive liquidity locked into Bitcoin today.',
+      imageUrl: '/api/placeholder/400/200',
+      organization: {
+        name: 'Stacks',
+        logoUrl: '/api/placeholder/40/40',
+        date: 'April 22nd, 2024'
+      },
+      stats: {
+        courses: 1,
+        lessons: 6,
+        xp: 100000
+      },
+      badges: ['Introduction to Stacks'],
+      theme: 'bg-orange-500'
+    },
   ];
 };
 
@@ -87,59 +85,61 @@ const CourseCard = ({ course }) => {
   if (!course) return null;
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
-      <div className={`w-full md:w-72 h-48 rounded-lg ${course.theme} flex items-center justify-center`}>
-        <img
-          src={course.imageUrl}
-          alt={course.title}
-          className="w-full h-full object-cover rounded-lg opacity-80"
-        />
-      </div>
-      
-      <div className="flex-1">
-        <div className="flex items-start justify-between">
-          <h2 className="text-2xl font-bold mb-2">{course.title}</h2>
-          <div className="text-gray-500 text-right">3K+</div>
-        </div>
-        
-        <div className="flex gap-3 mb-4">
-          <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-            {course.stats.courses} Courses
-          </span>
-          <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">
-            {course.stats.lessons} Lessons
-          </span>
-          <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
-            +{course.stats.xp.toLocaleString()} XP
-          </span>
-        </div>
-        
-        <p className="text-gray-600 mb-4">{course.description}</p>
-        
-        {course.badges?.length > 0 && (
-          <div className="flex flex-wrap gap-2">
-            {course.badges.map((badge, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm"
-              >
-                {badge}
-              </span>
-            ))}
-          </div>
-        )}
-        
-        <div className="flex items-center gap-2 mt-4">
+    <Link href={`/courses/${course.id}`} className="block">
+      <div className="flex flex-col md:flex-row gap-6 bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+        <div className={`w-full md:w-72 h-48 rounded-lg ${course.theme} flex items-center justify-center`}>
           <img
-            src={course.organization.logoUrl}
-            alt={course.organization.name}
-            className="w-6 h-6 rounded-full"
+            src={course.imageUrl}
+            alt={course.title}
+            className="w-full h-full object-cover rounded-lg opacity-80"
           />
-          <span className="font-medium">{course.organization.name}</span>
-          <span className="text-gray-500">{course.organization.date}</span>
+        </div>
+        
+        <div className="flex-1">
+          <div className="flex items-start justify-between">
+            <h2 className="text-2xl font-bold mb-2">{course.title}</h2>
+            <div className="text-gray-500 text-right">3K+</div>
+          </div>
+          
+          <div className="flex gap-3 mb-4">
+            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+              {course.stats.courses} Courses
+            </span>
+            <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">
+              {course.stats.lessons} Lessons
+            </span>
+            <span className="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+              +{course.stats.xp.toLocaleString()} XP
+            </span>
+          </div>
+          
+          <p className="text-gray-600 mb-4">{course.description}</p>
+          
+          {course.badges?.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {course.badges.map((badge, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+          )}
+          
+          <div className="flex items-center gap-2 mt-4">
+            <img
+              src={course.organization.logoUrl}
+              alt={course.organization.name}
+              className="w-6 h-6 rounded-full"
+            />
+            <span className="font-medium">{course.organization.name}</span>
+            <span className="text-gray-500">{course.organization.date}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -171,7 +171,6 @@ const CoursesAndDegrees = () => {
     const fetchCourses = async () => {
       try {
         setLoading(true);
-        // Replace this with your smart contract call
         const data = await mockFetchCourses();
         setCourses(data);
       } catch (err) {

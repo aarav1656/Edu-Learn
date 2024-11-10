@@ -4,7 +4,6 @@ import Link from 'next/link';
 const LandingPage = () => {
   return (
     <div className="max-w-[1440px] mx-auto px-6">
-      {/* Navigation */}
       <nav className="flex items-center justify-between py-5">
         <div className="flex items-center gap-12">
           <Link href="/" className="text-2xl font-bold">
@@ -28,16 +27,12 @@ const LandingPage = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 py-16">
-        {/* Left Column */}
         <div className="flex flex-col justify-center">
           <div className="mb-8">
-            {/* Book icon */}
             <div className="w-32">
               <div className="relative">
                 <div className="absolute left-0 top-0">
-                  {/* Replace with your actual book icon */}
                   <div className="w-32 h-24 flex items-end">
                     <div className="w-24 h-16 border-2 border-black transform -rotate-12"></div>
                     <div className="w-6 h-6 bg-black rounded-full ml-2"></div>
@@ -64,7 +59,6 @@ const LandingPage = () => {
           </button>
 
           <div className="mt-16">
-            {/* Notebook illustration */}
             <div className="w-40 h-40 relative">
               <div className="w-32 h-40 border-2 border-black transform rotate-12"></div>
             </div>
