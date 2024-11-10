@@ -12,6 +12,7 @@
     "@opencampus/ocid-connect-js": "^1.2.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "ethers": "^6.13.4",
     "lucide-react": "^0.456.0",
     "next": "13.4.0",
     "react": "18.2.0",

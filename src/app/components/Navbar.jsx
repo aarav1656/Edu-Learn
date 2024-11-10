@@ -1,1 +1,0 @@
-// seperate Navbar compo from Landing, i just coded there by mistake
