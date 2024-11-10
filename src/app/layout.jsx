@@ -1,12 +1,11 @@
-import './globals.css'
-import OCConnectWrapper from "./components/OCConnectWrapper"
+import "./globals.css";
+import OCConnectWrapper from "../components/OCConnectWrapper";
+import Navbar from "@/components/Navbar";
 
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   const opts = {
-    redirectUri: 'http://localhost:3000/courses',
-    referralCode: 'PARTNER6',
+    redirectUri: "http://localhost:3000/courses",
+    referralCode: "PARTNER6",
   };
 
   return (
@@ -16,6 +15,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background font-sans antialiased">
         <OCConnectWrapper opts={opts} sandboxMode={true}>
+          <Navbar />
           {children}
         </OCConnectWrapper>
       </body>
@@ -24,6 +24,6 @@ export default function RootLayout({
 }
 
 export const metadata = {
-  title: 'Your App Name',
-  description: 'Your app description',
-}
+  title: "Your App Name",
+  description: "Your app description",
+};
